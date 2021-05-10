@@ -1,6 +1,6 @@
 <a name="top"></a>
-![Natural Language Processing](./images/NLP.jpg)
-/Users/barbmarques/codeup-data-science/natural-language-processing-exercises/individual-nlp-project/NLP.jpeg
+![Natural Language Processing](https://github.com/barbmarques/individual-nlp-project/blob/main/NLP.jpeg, raw=True)
+
 
 
 <a id='navigation'></a>
