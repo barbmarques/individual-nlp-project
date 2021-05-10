@@ -557,7 +557,7 @@ def process_repo(repo: str) -> Dict[str, str]:
     readme_download_url = get_readme_download_url(contents)
     if readme_download_url == "":
         readme_contents = ""
-        print(repo)
+#         print(repo)
     else:
         readme_contents = requests.get(readme_download_url).text
     return {
