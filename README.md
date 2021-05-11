@@ -1,40 +1,37 @@
 <a name="top"></a>
-![Natural Language Processing](https://github.com/barbmarques/individual-nlp-project/blob/main/NLP.jpeg, raw=True)
-
-
-
+![Natural Language Processing](https://github.com/barbmarques/individual-nlp-project/blob/main/nlpbanner.png?raw=true)
 <a id='navigation'></a>
-
 [[Project Summary](#project-summary)]
 [[Project Planning](#pipeline)]
 [[Key Findings](#key-findings)]
 [[Data Dictionary](#data-dictionary)]
 [[Project Replication](#replication)]
-
-___
 <a name="project-summary"></a><h1><img src=""/></h1>
 
-#### Project Summary:
+#### <font color = 'darkblue'>Project Summary:
 
-I was assigned the task of scraping data from GitHub repository README files. The goal was to build a model that can accurately predict what programming language is primarily used in a repository, given the text of the README file.
+I was assigned the task of scraping data from GitHub repository README files and chose to focus on repositories that reference Cybersecurity. The goal was to understand what programming languages are being actively utilized by those working in the field today. I built a model to predict which programming language is primarily used in a repository, given the text of the README file.
 
 Data Source: GitHub Repositories
 
 All files referenced in this presentation are available in the github repository for this project:   https://github.com/barbmarques/individual-nlp-project.
 
 
-#### Project Goals/Deliverables:
-- Build a model that 
+#### <font color = 'darkblue'>Project Deliverables:
+- A model to predict which programming language is primarily used in a repository, given the text of the README file.
+- A slide deck presentation that demonstrates the model and my findings based on same.
 
-#### Initial Questions: 
+#### <font color = 'darkblue'>Initial Questions: 
 - Can the use of certain words in the text of a README file be used to accurately predict the primary language used in the repository?
+- Which programming languages are most commonly used in GitHubs of users in the Cybersecurity field?
+- What words are the most commonly used to describe projects for the various programming languages?
 
 
 
 <a name="pipeline"></a><h1><img src=""/></h1>
 
 
-#### Progression through the Data Science Pipeline: 
+#### <font color = 'darkblue'>Progression through the Data Science Pipeline: 
 ``` PLAN -> ACQUIRE -> PREPARE -> EXPLORE -> MODEL -> DELIVER ```
 
 Each step in the process is recorded and staged on a Trello board at: https://trello.com/b/aiTU7TYX
@@ -50,10 +47,7 @@ Each step in the process is recorded and staged on a Trello board at: https://tr
 ```Prepare:```
 - Carefully reviewed data, identifying any missing, erroneous, or invalid values. 
 - Explored value counts of the dataframe and visualized distribution of univariate data 
-- Created and called a function, ```prep_zillow```, as a reproducible component that cleans/prepares data for analysis by: renames columns, handling missing values, adjusts data types, handles any data integrity
-- Created and called a function, ```train_validate_test_split```, that splits the data into train, validate and test sets.
-- Numeric data was scaled using MinMax scaler.
-- Created a module ```wrangle_zillow.py``` which stores code for functions that acquire and prepare data.
+- 
 
 ```Explore:```
 - Visualize all combination of variables to explore relationships.
@@ -64,19 +58,27 @@ Each step in the process is recorded and staged on a Trello board at: https://tr
 
 ```Model:``` 
 - Developed a baseline model.
-- Developed a regression model that performs better than the baseline
-- Documented algorithms and hyperparameters used.
-- Plotted the residuals and documented evaluation metrics (SSE, RMSE, or MSE).
+- Developed three classification models, identifying the one model that performs better against the baseline using the train and validation data.
+- Evaluate the test data set on the best performing model
+- Documented evaluation metrics and takeaways.
 
 ```Deliver:```
-- Clearly documented all code in a reproducible Jupyter notebook called Zillow_Regression_Project.
-- Created a Google slide presentation that can be shared with Zillow management.
+- Document evaluation and takeaways.
+- Deliver slide deck for presentation and Jupyter Notebook containing all preparation, exploration and modeling.
+    
+    
+<a name="Findings & Takeaways"></a><h1><img src=""/></h1>
+ 
+#### <font color = 'darkblue'>Findings & Takeaways:
 
-<a name="key-findings"></a><h1><img src=""/></h1>
+- Of the 240 GitHub README files that were analyzed, I found the majority used Python as the primary language (followed by Jupyter Notebook and then HTML). 
+- Using a K-Nearest Neighbors model on out-of-sample test data, I was able to predict the primary language of a repository with an accuracy of 49%.
+- This beats baseline performance of 42%.
+
 
 
 <a name="data-dictionary"></a><h1><img src=""/></h1>
-#### Data Dictionary of Variables Used in Analysis
+#### <font color = 'darkblue'>Data Dictionary of Variables Used in Analysis
 
 | Attribute | Definition | Data Type |
 | ----- | ----- | ----- |
@@ -84,44 +86,15 @@ Each step in the process is recorded and staged on a Trello board at: https://tr
 |repo| The name of the GitHub repository whose README file was scraped | object |
 |readme_contents| The text of the readme file that was scraped from the GitHub repository| object |
 
-
 <a name="replication"></a><h1><img src=""/></h1>
 
 
+#### <font color = 'darkblue'>Instructions for Reproducing My Findings:
 
+1.  Start by cloning the github repository on your From your terminal command line, type git clone git@github.com:barbmarques/individual-nlp-project.git
 
-#### Recommendation & Takeaways:
+2.  You will also need you a copy of your personal env file in your working directory:
+ - This should contain your GitHub access information (host, user, password) 
 
-- Recommend using a Polynomial Regression Model (degree of 2) to predict home values based on bathroom count, age of home, square footage and zip code.
-- Note: Scatterplot visualization demonstrates that our model tends to under-value homes that exceed the median tax value of ~$408,000.
-- Primary Drivers of Tax Value include: square footage, bedroom and bathroom count, age of home, and zip code in which home is located.
-
-#### Given more Time and Resources, I would:
-
-- Fine tune feature engineering, perhaps combining some features, to increase accuracy.
-- Since there was little difference in the RMSE for mean and median, I would re-run models using median as baseline. 
-- Reconfigure many of my explorations and modeling code into functions, to clean up notebook and increase reproducibility of results.
-
-
-
-
-
-
-#### Instructions for Reproducing My Findings:
-
-1.  Start by cloning the github repository on your From your terminal command line, type git clone git@github.com:barbmarques/zillow-regression-project.git
-
-2.  Download the following files from https://github.com/barbmarques/zillow-regression-project to your working directory:  
- - Zillow_Regression Project.ipynb
- - wrangle_zillow.py
- - explore.py
-  
-3.  You will also need you a copy of your personal env file in your working directory:
- - This should contain your access information (host, user, password) to access Codeup's database in MySQL
-
-4. Run the Jupyter notebook, Zillow_Regression_Project, cell by cell, to reproduce my analysis.
-
-4. To access the property value predictions in a csv format, download ```property_value_predictions
-.csv```. 
-
+3. Run the Jupyter notebook, Final_Notebook, cell by cell, to reproduce my analysis.
 
