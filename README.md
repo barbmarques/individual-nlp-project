@@ -12,9 +12,9 @@ ___
 ## <a name="project-summary"></a>
 #### <font color = 'darkblue'>Project Summary:
 
-I was assigned the task of scraping data from GitHub repository README files and chose to focus on repositories that reference Cybersecurity. The goal was to understand what programming languages are being actively utilized by those working in the field today. I built a model to predict which programming language is primarily used in a repository, given the text of the README file.
+I was tasked with scraping data from GitHub repository README files in repositories that reference cybersecurity. The goal was to understand what programming languages are being actively used by those working in cybersecurity positions. I built a model to predict which programming language is primarily used in a repository, given the text of the README file.
 
-Data Source: GitHub Repositories which reference cybersecurity
+Data Source: 470 GitHub Repositories that reference cybersecurity in their title.
 
 All files referenced in this presentation are available in the github repository for this project:   https://github.com/barbmarques/individual-nlp-project.
 
@@ -74,8 +74,8 @@ Each step in the process is recorded and staged on a Trello board at: https://tr
 
 | Attribute | Definition | Data Type |
 | ----- | ----- | ----- |
-| **language**| The 2017 total tax assessed value of the parcel | object|
-|repo| The name of the GitHub repository whose README file was scraped | object |
+| **language**| The primary programming language that is represented in the given repository. This value was scraped from each repositories GitHub page. For modeling purposes, only the top six languages were considered. (Python, Jupyter Notebook, HTML, Java, Shell and JavaScript. | object|
+|repo| The name of the GitHub repository whose README text was analyzed. | object |
 |readme_contents| The text of the readme file that was scraped from the GitHub repository| object |
 
 ## <a name="reproduce"></a>
