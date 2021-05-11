@@ -2,7 +2,7 @@
 import unicodedata
 import re
 import json
-
+from sklearn.model_selection import train_test_split
 import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
@@ -163,3 +163,5 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
     df['lemmatized'] = df[column].apply(basic_clean).apply(lemmatize)
     
     return df[['title', column, 'stemmed', 'lemmatized', 'clean']]
+
+
